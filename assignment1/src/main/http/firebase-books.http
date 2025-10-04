@@ -1,0 +1,55 @@
+@base = https://dmit2015-assignment01-fadeke-default-rtdb.firebaseio.com
+@books = {{base}}/books
+@id = -OaS6UZCgNUN93ARu6FW
+
+
+### PING base should return null (200)
+GET {{base}}/.json
+
+### POST 1
+POST {{books}}.json
+Content-Type: application/json
+
+{ "title":"Clean Code",
+  "author":"Robert C. Martin",
+  "publishDate":"2008-08-01",
+  "readAlready":true }
+
+
+
+### POST 2
+POST {{books}}.json
+Content-Type: application/json
+
+{ "title":"Effective Java","author":"Joshua Bloch","publishDate":"2018-01-06","readAlready":false }
+
+### POST 3
+POST {{books}}.json
+Content-Type: application/json
+
+{ "title":"The Pragmatic Programmer","author":"Andrew Hunt, David Thomas","publishDate":"1999-10-30","readAlready":true }
+
+### GET all
+GET {{books}}.json
+
+### GET one
+GET {{books}}/{{id}}.json
+
+### PATCH one
+PATCH {{books}}/{{id}}.json
+Content-Type: application/json
+
+{ "readAlready": false }
+
+### DELETE one
+DELETE {{books}}/{{id}}.json
+
+
+### (Optional) PUT deterministic id
+PUT {{books}}/BK-1001.json
+Content-Type: application/json
+
+{ "title":"Domain-Driven Design","author":"Eric Evans","publishDate":"2003-08-30","readAlready":false }
+
+
+

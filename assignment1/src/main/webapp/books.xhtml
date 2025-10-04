@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="jakarta.faces.facelets">
+
+<ui:composition template="WEB-INF/faces-templates/layout.xhtml">
+    <ui:define name="maincontent">
+        <h2>Manage Books</h2>
+
+        <h:form id="bookForm">
+            <p:dataTable value="#{bookCrudView.books}" var="book" lazy="false" style="width:100%">
+                <p:column headerText="ID"><h:outputText value="#{book.id}"/></p:column>
+                <p:column headerText="Title"><h:outputText value="#{book.title}"/></p:column>
+                <p:column headerText="Author"><h:outputText value="#{book.author}"/></p:column>
+                <p:column headerText="Published"><h:outputText value="#{book.publishDate}"/></p:column>
+                <p:column headerText="Read?"><h:outputText value="#{book.readAlready ? 'Yes' : 'No'}"/></p:column>
+                <p:column headerText="Actions">
+                    <p:commandButton value="Edit" action="#{bookCrudView.edit(book)}" update="@form"/>
+                    <p:commandButton value="Delete" action="#{bookCrudView.delete(book.id)}" update="@form"/>
+                </p:column>
+            </p:dataTable>
+
+            <h3 class="mt-3">Add / Edit Book</h3>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Title:"/><p:inputText value="#{bookCrudView.selectedBook.title}" required="true"/>
+                <p:outputLabel value="Author:"/><p:inputText value="#{bookCrudView.selectedBook.author}" required="true"/>
+                <p:outputLabel value="Publish Date:"/><p:inputText type="date" value="#{bookCrudView.selectedBook.publishDate}" required="true"/>
+                <p:outputLabel value="Read?"/><p:selectBooleanCheckbox value="#{bookCrudView.selectedBook.readAlready}"/>
+            </p:panelGrid>
+
+            <p:commandButton value="Save" action="#{bookCrudView.create}" update="@form"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

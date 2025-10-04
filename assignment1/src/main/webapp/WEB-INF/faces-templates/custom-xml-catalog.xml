@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri name="jakarta.faces" uri="https://jakarta.ee/xml/ns/jakarta.faces"/>
+    <uri name="jakarta.faces.core" uri="https://jakarta.ee/xml/ns/jakarta.faces.core"/>
+    <uri name="jakarta.faces.html" uri="https://jakarta.ee/xml/ns/jakarta.faces.html"/>
+    <uri name="jakarta.faces.facelets" uri="https://jakarta.ee/xml/ns/jakarta.faces.facelets"/>
+    <uri name="http://omnifaces.org/ui" uri="https://raw.githubusercontent.com/omnifaces/omnifaces/master/src/main/resources/META-INF/omnifaces.taglib.xml"/>
+</catalog>
