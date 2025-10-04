@@ -26,7 +26,8 @@ import java.util.List;
 public class BookCrudView implements Serializable {
 
     @Inject
-    @Named("memoryBookService")
+    //@Named("memoryBookService")
+    @Named("firebaseHttpClientBookService")
     private BookService bookService;
 
     /**
